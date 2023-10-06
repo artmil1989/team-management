@@ -1,52 +1,50 @@
 <template>
-    <div class="d-flex justify-center auth-height align-center">
-        <v-card width="300" class="px-5 py-5">
-            <v-form v-model="isFormValid" @submit.prevent="submit">
-                <!-- <v-text-field
-                    v-model="firstName"
-                    :rules="rules.required"
-                    label="First Name"
-                    outlined
-                ></v-text-field>
+    <v-card class="px-10" color="transparent" elevation="0">
+        <v-form v-model="isFormValid" @submit.prevent="submit">
+            <!-- <v-text-field
+                v-model="firstName"
+                :rules="rules.required"
+                label="First Name"
+                outlined
+            ></v-text-field>
 
-                <v-text-field
-                    v-model="lastName"
-                    :rules="rules.required"
-                    label="Last Name"
-                    outlined
-                ></v-text-field> -->
+            <v-text-field
+                v-model="lastName"
+                :rules="rules.required"
+                label="Last Name"
+                outlined
+            ></v-text-field> -->
 
-                <v-text-field
-                    v-model="email"
-                    :rules="rules.email"
-                    label="Email"
-                    outlined
-                ></v-text-field>
+            <v-text-field
+                v-model="email"
+                :rules="rules.email"
+                label="Email"
+                outlined
+            ></v-text-field>
 
-                <v-text-field
-                    v-model="password"
-                    :rules="rules.min"
-                    label="Password"
-                    :type="showPassword ? 'text' : 'password'"
-                    outlined
-                    :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
-                    @click:append="showPassword = !showPassword"
-                ></v-text-field>
+            <v-text-field
+                v-model="password"
+                :rules="rules.min"
+                label="Password"
+                :type="showPassword ? 'text' : 'password'"
+                outlined
+                :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
+                @click:append="showPassword = !showPassword"
+            ></v-text-field>
 
-                <v-text-field
-                    v-model="rePassword"
-                    :rules="[...rules.min, passwordConfirmationRule]"
-                    label="re-Password"
-                    :type="showPassword ? 'text' : 'password'"
-                    outlined
-                    :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
-                    @click:append="showPassword = !showPassword"
-                ></v-text-field>
+            <v-text-field
+                v-model="rePassword"
+                :rules="[...rules.min, passwordConfirmationRule]"
+                label="re-Password"
+                :type="showPassword ? 'text' : 'password'"
+                outlined
+                :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
+                @click:append="showPassword = !showPassword"
+            ></v-text-field>
 
-                <v-btn :disabled="!isFormValid" :loading="loading" block class="mt-2" type="submit" color="primary">Submit</v-btn>
-            </v-form>
-        </v-card>
-    </div>
+            <v-btn :disabled="!isFormValid" :loading="loading" block class="mt-2" type="submit" color="primary">Submit</v-btn>
+        </v-form>
+    </v-card>
 </template>  
   
 <script>
