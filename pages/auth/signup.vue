@@ -1,7 +1,7 @@
 <template>
     <v-card class="px-10" color="transparent" elevation="0">
         <v-form v-model="isFormValid" @submit.prevent="submit">
-            <!-- <v-text-field
+            <v-text-field
                 v-model="firstName"
                 :rules="rules.required"
                 label="First Name"
@@ -13,7 +13,7 @@
                 :rules="rules.required"
                 label="Last Name"
                 outlined
-            ></v-text-field> -->
+            ></v-text-field>
 
             <v-text-field
                 v-model="email"
@@ -83,7 +83,13 @@ methods: {
             this.loading = true;
             await this.signup({
                 email: this.email,
-                password: this.password
+                password: this.password,
+                options: {
+                    data: {
+                        firstName: this.firstName,
+                        lastName: this.lastName
+                    }
+                }
             });
             this.loading = false;
             this.$router.push('/auth/signin')

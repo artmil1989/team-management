@@ -31,9 +31,23 @@ export const actions = {
         return { data, error }
     },
     async signout({ commit }) {
-        const { error } = await supabase.auth.signOut()
+        const { error } = await this.$supabase.auth.signOut()
         this.$cookies.remove('user')
         commit('setUser', null)
         return { error }
+    },
+
+    async updateUser ({ commit }, input){
+        const { data, error } = await this.$supabase.auth.updateUser({
+            data: input
+        })
+        this.$cookies.set('user', data.user, {
+            path: '/',
+            maxAge: 3600,
+            secure: true
+        })
+        commit('setUser', data.user)
+        console.log(data);
+        return { data, error }
     }
 }

@@ -2,7 +2,7 @@
   <div>
     {{ counter }}
     <v-btn @click="setCounter(1000)"> increament </v-btn>
-    {{ user }}
+    <!-- {{ user }} -->
   </div>
 </template>
 
